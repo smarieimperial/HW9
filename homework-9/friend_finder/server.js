@@ -1,7 +1,30 @@
 var express = require('express'); // the express folder is inside the node modules folder
 var app = express();
+
+//you need this to be able to process information sent to a POST route
+var bodyParser = require('body-parser');
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// parse application/json
+app.use(bodyParser.json());
+
 var path = require("path");
 
+app.use(express.static("public"));
+
+app.get('/post-form', function(req, res){
+	res.sendFile(path.join(__dirname, "public/post-form.html"));
+});
+app.post('/take-in-post-info', function(req, res){
+	//req.params
+	//req.query
+	// res.send(req.body);
+	console.log(req.body);
+
+	res.redirect('/post-form');
+});
 
 app.get('/index', function(req, res){
 	res.sendFile(path.join(__dirname, "/app/public/index.html"));
