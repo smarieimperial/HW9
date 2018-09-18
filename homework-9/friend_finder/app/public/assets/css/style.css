@@ -1,0 +1,17 @@
+input {
+    width: auto;
+    margin-top: 20px;
+}
+a {
+    color: blue;
+}
+select {
+    margin-left: 20px;
+}
+button {
+    margin-left: 20px;
+}
+
+background {
+    color: pink;
+}
