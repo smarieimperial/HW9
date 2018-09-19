@@ -13,7 +13,9 @@ app.use(bodyParser.json());
 var path = require("path");
 
 app.use(express.static("public"));
+ 
 
+// example below 'POST'
 app.get('/post-form', function(req, res){
 	res.sendFile(path.join(__dirname, "public/post-form.html"));
 });
@@ -25,6 +27,7 @@ app.post('/take-in-post-info', function(req, res){
 
 	res.redirect('/post-form');
 });
+// example end
 
 app.get('/index', function(req, res){
 	res.sendFile(path.join(__dirname, "/app/public/index.html"));
